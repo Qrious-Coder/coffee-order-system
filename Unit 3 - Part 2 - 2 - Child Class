@@ -1,0 +1,66 @@
+Here's a summarized version of the document in bullet and numbering format, highlighting the key examples used to explain the main concepts:
+
+**Child Classes by Sophia**
+1. **Customizing Subclasses**
+   - Subclasses inherit all parameters of its base class.
+   - Subclasses can be customized to have unique characteristics.
+   - Example: Base class `Member` with subclasses `Admin` and `User`. The subclasses inherit methods from the base class but can be customized further.
+     ```java
+     public class Member {
+         private String firstName;
+         private String lastName;
+         ...
+     }
+     public class Admin extends Member {
+         ...
+     }
+     public class User extends Member {
+         ...
+     }
+     ```
+   - Subclasses can override default values from the base class. For instance, changing the `expiryDays` value for the `Admin` subclass.
+   - Example: Modifying the `Admin` subclass to have a different `expiryDays` value.
+     ```java
+     public class Admin extends Member {
+         private int expiryDays = 100 * 365;
+         ...
+     }
+     ```
+   - Subclasses can have attributes not present in the base class. For instance, the `Admin` subclass can have an additional attribute `secret`.
+   - Example: Adding a `secret` attribute to the `Admin` subclass.
+     ```java
+     public class Admin extends Member {
+         private String secret;
+         ...
+     }
+     ```
+
+2. **Overriding Methods in Subclasses**
+   - Subclasses can override methods from the base class.
+   - Example: Overriding the `getStatus()` method in the `Admin` and `User` subclasses.
+     ```java
+     public String getStatus() {
+         return getFirstName() + " " + getLastName() + " is an Admin.";
+     }
+     ```
+
+3. **Using the super() Method**
+   - The `super()` method allows the constructor in a subclass to call the constructor of the base class.
+   - It's essential for initializing attributes inherited from the base class.
+   - Example: Using `super()` in the `Admin` subclass constructor.
+     ```java
+     public Admin(String firstName, String lastName, String secret) {
+         super(firstName, lastName);
+         ...
+     }
+     ```
+
+4. **Summary**
+   - Subclasses can be customized beyond what they inherit from the base class.
+   - They can have their own constructors and methods, and with the use of `super()`, they can call the base class's constructor.
+   - If a method name is the same in the base class and a subclass, Java will use the most specific one tied to the subclass.
+
+**Key Terms**
+- **super()**: Allows the constructor in a subclass to call the constructor for the base class.
+
+*Source references are from "Java, Java, Java: Object-Oriented Problem Solving" and "Python for Everybody" by Dr. Charles R. Severance.*
